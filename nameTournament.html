@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n='title'></title>
+  <link rel="stylesheet" href="./css/commonStyle.css" />
+  <link rel="stylesheet" href="./nameTournament/css/style.css" />
+</head>
+<body>
+  <div class="titleBar">
+    <div>
+      <h2 data-i18n="title"></h2>
+    </div>
+  </div>
+  <div class="container" id="container">
+    <div id="makeChoice" class="title" data-i18n="makeChoice"></div>
+    <div class="round-info" id="roundInfo"></div>
+    <div class="choices" id="choices"></div>
+    <div class="tree-levels" id="treeLevels"></div>
+    <div class="final" id="final"></div>
+    <div class="podium" id="podium"></div>
+  </div>
+  <div id="containerLink" class="container" style="margin-top: 10px;display:none;">
+    <table style="width: 100%">
+      <tr>
+        <td data-i18n="linkToShare" style="width:20%; text-align: left;"></td>
+        <td style="padding-left: 20px;"><input type="text" readonly id="linkToShare" style="width:100%"></td>
+        <td><button onclick="copyLinkToShare(this)">✂️</button></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="langSwitcher" style="display: none">
+    <button id="toggleLangBtn"><span></span>▼</button>
+    <ul id="langList">
+    </ul>
+  </div>
+
+  <div id="newGame" style="display: none">
+    <button onclick="initPopup1()">+</button>
+  </div>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+    </div>
+  </div>
+
+  <canvas></canvas>
+  <footer></footer>
+
+  <script src="./js/commonScript.js"></script>
+  <script src="./js/commonLangs.js"></script>
+  <script src="./nameTournament/js/langs.js"></script>
+  <script src="./nameTournament/js/script.js"></script>
+  <script src="./js/counter.js"></script>
+
+  <script type="text/javascript">
+    initTranslation([translationsCommon, translations]);
+
+    init();
+
+    if(isHomePage(3) == true)
+      initLangSwitch();
+
+    translate();
+
+  </script>
+</body>
+</html>

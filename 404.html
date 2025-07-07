@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="pageNotFound"></title>
+  <link rel="stylesheet" href="./404/css/style.css" />
+</head>
+<body>
+  <div class="error-code">
+    4👶🏼4
+  </div>
+  <div class="message" data-i18n="notFound"></div>
+  <a href="index.html" data-i18n="backHome"></a>
+
+  <script src="./js/commonScript.js"></script>
+  <script src="./404/js/langs.js"></script>
+  <script>
+    const babies = ['👶🏻','👶🏼','👶🏽','👶🏾'];
+    const index = Math.floor(Math.random() * babies.length);
+
+    document.getElementsByClassName("error-code")[0].innerText = "4" + babies[index] + "4";
+
+    initTranslation([translations]);
+    translate();
+  </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+body {
+  text-align: center;
+  padding-top: 50px;
+  margin: 0px;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.machine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.slots {
+  display: flex;
+  gap: 1rem;
+}
+
+.slot {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #eee;
+  box-shadow: inset 0 0 10px #ccc;
+  position: relative;
+}
+
+.reel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 4rem;
+  line-height: 100px;
+  transition: transform 0.3s ease-out;
+}
+
+.lever-container {
+  position: relative;
+  width: 40px;
+  height: 150px;
+}
+
+.lever {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  width: 10px;
+  height: 120px;
+  background: #888;
+  border-radius: 5px;
+  transform-origin: top center;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+@keyframes idlePull {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-45deg); }
+}
+
+.lever.pulled {
+  animation: idlePull 0.5s 1 ease-out;
+  /*transform: rotate(-45deg);*/
+}
+
+.lever .ball {
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -15px;
+  left: -10px;
+}
+
+#result {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
+
+.slot-img-removed {
+  width: 100%;
+  height: auto;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .slot {
+    width: 70px;
+    height: 70px;
+  }
+
+  .reel {
+    font-size: 2.5rem;
+    line-height: 70px;
+  }
+
+  .slot-img-removed {
+    max-height: 70px;
+  }
+
+  .machine {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .lever-container {
+    height: 100px;
+  }
+
+  .lever {
+    height: 80px;
+  }
+
+  .lever .ball {
+    width: 20px;
+    height: 20px;
+    bottom: -10px;
+    left: -5px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  #result {
+    font-size: 1rem;
+  }
+}
+
+
+@keyframes idleWiggle {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.lever.idle {
+  animation: idleWiggle 1.5s infinite ease-out;
+}
+
+.lever.paused {
+  animation-play-state: paused;
+}
+
+#newGame {
+  margin: 40px auto;
+  display: block;
+  padding: 12px 24px;
+  font-size: 16px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#newGame:hover {
+  background: #4338ca;
+}
+
+.form_emojiContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.form_emojiInput {
+  text-align: center;
+}
+
+.popup label {
+  text-align: left;
+}

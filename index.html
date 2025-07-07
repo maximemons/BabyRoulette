@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - Mes Applications</title>
+  <link rel="stylesheet" href="./css/commonStyle.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1 data-i18n="title"></h1>
+    <div class="counterapi"   readOnly="true" startNumber="42000" key="homapage"  ></div>
+  </header>
+
+  <main>
+    <div id="app-list">
+    </div>
+  </main>
+
+  <div id="langSwitcher">
+    <button id="toggleLangBtn"><span></span>▼</button>
+    <ul id="langList">
+    </ul>
+  </div>
+
+  <footer></footer>
+
+  <script src="./js/commonScript.js"></script>
+  <script src="./js/commonLangs.js"></script>
+  <script src="./js/langs.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/counter.js"></script>
+
+  <script type="text/javascript">
+    initTranslation([translationsCommon, translations]);
+
+    initLangSwitch();
+
+    cards.forEach(card => {
+      generateCard(card);
+    });
+
+    translate();
+  </script>
+</body>
+</html>

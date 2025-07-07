@@ -1,0 +1,37 @@
+body {
+  background-color: #f2f2f2;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+.error-code {
+  font-size: 10rem;
+  font-weight: bold;
+}
+
+.message {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.emoji {
+  font-size: 10rem;
+}
+
+a {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

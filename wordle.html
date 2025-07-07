@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title"></title>
+  <link rel="stylesheet" href="./css/commonStyle.css" />
+  <link rel="stylesheet" href="./wordle/css/style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1 data-i18n="title"></h1>
+  </div>
+
+  <div class="board-wrapper">
+    <div id="board"></div>
+  </div>
+  <div class="keyboard-toggle">
+    <button id="toggleKeyboard"></button>
+  </div>
+  <div id="keyboard"></div>
+
+  <div id="langSwitcher" style="display: none">
+    <button id="toggleLangBtn"><span></span>▼</button>
+    <ul id="langList">
+    </ul>
+  </div>
+
+  <div id="newGame" style="display: none">
+    <button onclick="initPopup2()">+</button>
+  </div>  
+
+  <canvas></canvas>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+    </div>
+  </div>
+
+  <footer></footer>
+
+  <script src="./js/commonScript.js"></script>
+  <script src="./js/commonLangs.js"></script>
+  <script src="./wordle/js/langs.js"></script>
+  <script src="./wordle/js/script.js"></script>
+  <script src="./js/counter.js"></script>
+
+  <script type="text/javascript">
+    initTranslation([translationsCommon, translations]);
+
+    init();
+
+    if(isHomePage(5 ) == true)
+      initLangSwitch();
+
+    buildBoard();
+
+    translate();
+  </script>
+</body>
+</html>

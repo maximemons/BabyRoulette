@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title"></title>
+  <link rel="stylesheet" href="./css/commonStyle.css" />
+  <link rel="stylesheet" href="./genderReveal/css/style.css" />
+</head>
+<body>
+
+  <div id="langSwitcher" style="display: none">
+    <button id="toggleLangBtn"><span></span>▼</button>
+    <ul id="langList">
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1 data-i18n="title">The reveal 🎰</h1>
+    <div class="machine">
+      <div class="slots">
+        <div class="slot"><div class="reel" id="slot1"></div></div>
+        <div class="slot"><div class="reel" id="slot2"></div></div>
+        <div class="slot"><div class="reel" id="slot3"></div></div>
+      </div>
+      <div class="lever-container" id="lever-container">
+        <div class="lever idle" id="lever">
+          <div class="ball"></div>
+        </div>
+      </div>
+    </div>
+    <p id="result"></p>
+  </div>
+
+  <button id="newGame" style="display: none" data-i18n="createNew" onclick='initPopup1()'></button>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+    </div>
+  </div>
+
+  <canvas></canvas>
+  <footer></footer>
+
+  <script src="./js/commonScript.js"></script>
+  <script src="./js/commonLangs.js"></script>
+  <script src="./genderReveal/js/langs.js"></script>
+  <script src="./genderReveal/js/script.js"></script>
+  <script src="./js/counter.js"></script>
+
+  <script type="text/javascript">
+    initTranslation([translationsCommon, translations]);
+
+    if(isHomePage(6) == true) {
+      initLangSwitch();
+    }
+
+    translate();
+
+    init();
+  </script>
+</body>
+</html>
