@@ -107,7 +107,7 @@ function initLangSwitch() {
 //FOOTER
 let footers = document.getElementsByTagName("footer");
 if(footers.length == 1) {
-	footers[0].innerHTML = "<center><table><tr><td colspan='2'><span>&copy;<span id='year'></span> Maxime Mons. <span data-i18n='allRightReserved'></span></span></td></tr><tr><td><center><a href='https://github.com/maximemons/Baby-Roulette' target='_blank' class='footer-link' id='github' data-i18n='viewOnGitHub'></a></center></td><td><center><a href='https://www.paypal.com/donate/?hosted_button_id=MBLHARVDYVX2S' target='_blank' class='footer-link' id='paypal' data-i18n='supportViaPaypal'></a></center></td></tr></table></center>";
+	footers[0].innerHTML = "<center><table><tr><td colspan='2'><span>&copy;<span id='year'></span> Maxime Mons. <span data-i18n='allRightReserved'></span></span></td></tr><tr><td><center><a href='https://github.com/maximemons/BabyRoulette' target='_blank' class='footer-link' id='github' data-i18n='viewOnGitHub'></a></center></td><td><center><a href='https://www.paypal.com/donate/?hosted_button_id=MBLHARVDYVX2S' target='_blank' class='footer-link' id='paypal' data-i18n='supportViaPaypal'></a></center></td></tr></table></center>";
 	document.getElementById('year').textContent = new Date().getFullYear();
 }
 
