@@ -19,6 +19,9 @@ let anywayMessage;
 function init() {
     const params = isHomePage(5);
 
+    azerty = currentLang == "fr";
+    buildKeyboard();
+
     if(params == true) {
         NAME = clichesNames[currentLang][Math.floor(Math.random() * clichesNames[currentLang].length)].normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
         document.getElementById("newGame").removeAttribute("style");
@@ -38,6 +41,8 @@ function init() {
             }
         });
     }
+
+    currentInput = NAME.substr(0,1);
 
     document.getElementById("toggleKeyboard").setAttribute("data-i18n", azerty ? "switchToQWERTY" : "switchToAZERTY");
 }
@@ -112,12 +117,14 @@ function buildKeyboard() {
     });
     const enterKey = document.createElement("button");
     enterKey.classList.add("key");
-    enterKey.textContent = "⏎";
+    enterKey.classList.add("keyGreen");
+    enterKey.setAttribute("data-i18n", "sendValidate");
     enterKey.onclick = submitWord;
     keyboard.appendChild(enterKey);
 
     const delKey = document.createElement("button");
     delKey.classList.add("key");
+    delKey.classList.add("keyRed");
     delKey.textContent = "⌫";
     delKey.onclick = () => {
         if (currentInput.length > 0) {
@@ -179,7 +186,7 @@ function submitWord() {
         
         disableInput();
     }
-    currentInput = "";
+    currentInput = NAME.substr(0,1);
     autoFillCorrectLetters();
 }
 
@@ -247,7 +254,6 @@ document.addEventListener("keydown", keyListener);
 
 
 buildBoard();
-buildKeyboard();
 
 
 //FORMS
