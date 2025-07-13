@@ -163,7 +163,7 @@ function submitWord() {
 
     updateKeyboardColors();
 
-    if (currentInput === NAME) {    //WIN
+    if (currentInput.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase() === NAME) {    //WIN
         fireworks();
         if(isTutorial) {
             setTimeout(() => initPopup1(), 1500);
@@ -199,6 +199,13 @@ function autoFillCorrectLetters() {
         if (cellAbove.classList.contains("correct")) {
             row.children[i].textContent = cellAbove.textContent;
         }
+    }
+
+    let cells = row.getElementsByClassName("cell");
+    for(let i = 1; i < cells.length; i++){
+        if(cells[i].innerText == "") 
+            return;
+        currentInput += cells[i].innerText;
     }
 }
 
