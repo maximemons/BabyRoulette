@@ -108,6 +108,16 @@ h1 {
   margin-bottom: 10px;
 }
 
+.keyGreen {
+  background-color:  green;
+  color:  white;
+}
+
+.keyRed {
+  background-color:  red;
+  color:  white;
+}
+
 @media (max-width: 500px) {
   .cell {
     width: 32px;
@@ -149,3 +159,4 @@ button.key.absent {
   width: 100%;
   -webkit-overflow-scrolling: touch; /* inertie iOS */
 }
+

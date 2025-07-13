@@ -13,7 +13,8 @@ const translations = {
     popup2Fail: "On fail :",
     popup2FailPh: "Oops ! Seems like you'll have to wait 😋",
     popup2Anyway: "Give name anyway ?",
-    popup2AnywayPh: "Just kiddin', it'll be "
+    popup2AnywayPh: "Just kiddin', it'll be ",
+    sendValidate: "⏎ Validate"
   },
   fr: {
     title: "La révélation 🤞🏼",
@@ -29,7 +30,8 @@ const translations = {
     popup2Fail: "En cas d'échec :",
     popup2FailPh: "Oops ! Il semblerait que tu doives attendre 😋",
     popup2Anyway: "Révéler quand même ?",
-    popup2AnywayPh: "Non je rigole, ça sera "
+    popup2AnywayPh: "Non je rigole, ça sera ",
+    sendValidate: "⏎ Valider"
   },
   es: {
     title: "La revelación 🤞🏼",
@@ -45,7 +47,8 @@ const translations = {
     popup2Fail: "Si fallas:",
     popup2FailPh: "¡Ups! Parece que tendrás que esperar 😋",
     popup2Anyway: "¿Revelar el nombre igual?",
-    popup2AnywayPh: "Es broma, será "
+    popup2AnywayPh: "Es broma, será ",
+    sendValidate: "⏎ Validar"
   },
   de: {
     title: "Die Enthüllung 🤞🏼",
@@ -61,7 +64,8 @@ const translations = {
     popup2Fail: "Bei Misserfolg:",
     popup2FailPh: "Oops! Sieht so aus, als müsstest du noch warten 😋",
     popup2Anyway: "Name trotzdem zeigen?",
-    popup2AnywayPh: "Nur Spaß, es wird "
+    popup2AnywayPh: "Nur Spaß, es wird ",
+    sendValidate: "⏎ Validieren"
   },
   it: {
     title: "La rivelazione 🤞🏼",
@@ -77,7 +81,8 @@ const translations = {
     popup2Fail: "Se sbagli:",
     popup2FailPh: "Oops! Sembra che dovrai aspettare 😋",
     popup2Anyway: "Rivelare comunque?",
-    popup2AnywayPh: "Scherzo, sarà "
+    popup2AnywayPh: "Scherzo, sarà ",
+    sendValidate: "⏎ Convalidare"
   },
   pt: {
     title: "A revelação 🤞🏼",
@@ -93,7 +98,8 @@ const translations = {
     popup2Fail: "Se errar:",
     popup2FailPh: "Oops! Parece que vai ter que esperar 😋",
     popup2Anyway: "Revelar mesmo assim?",
-    popup2AnywayPh: "Tô brincando, será "
+    popup2AnywayPh: "Tô brincando, será ",
+    sendValidate: "⏎ Validar"
   },
   nl: {
     title: "De onthulling 🤞🏼",
@@ -109,6 +115,7 @@ const translations = {
     popup2Fail: "Bij mislukking:",
     popup2FailPh: "Oeps! Je zal nog even moeten wachten 😋",
     popup2Anyway: "Toch naam tonen?",
-    popup2AnywayPh: "Grapje, het wordt "
+    popup2AnywayPh: "Grapje, het wordt ",
+    sendValidate: "⏎ Valideren"
   }
 };
