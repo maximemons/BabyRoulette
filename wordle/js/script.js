@@ -248,6 +248,7 @@ toggleBtn.onclick = () => {
     toggleBtn.textContent = azerty ? "Passer en QWERTY" : "Switch to AZERTY";
     buildKeyboard();
     updateKeyboardColors();
+    translate();
 };
 
 document.addEventListener("keydown", keyListener);
