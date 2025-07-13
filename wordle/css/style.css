@@ -160,3 +160,12 @@ button.key.absent {
   -webkit-overflow-scrolling: touch; /* inertie iOS */
 }
 
+@media (max-width: 800px) {
+  #keyboard {
+    width: 90%;
+  }
+  
+  .key {
+    min-width: 30px;
+  }
+}
