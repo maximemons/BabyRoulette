@@ -1,66 +1,30 @@
-const COUNTERAPIBASE = "https://countapi.mileshilliard.com/api/v1/";
+/* Baby Roulette : compteurs (vues des pages, votes du tournoi) via countapi.mileshilliard.com.
+   Les clés sont les mêmes que dans la première version : les chiffres déjà comptés sont conservés. */
 
-const COUNTERVIEWS = "babyrouletteviews";
+const API = "https://countapi.mileshilliard.com/api/v1/";
+const VIEWS = "babyrouletteviews";
 
-async function get(url) {
-    try {
-        const response = await fetch(url);
-        if (response.status === 200) {
-            const data = await response.json();
-            return { success: true, content: data };
-        } else {
-            throw new Error("Erreur HTTP : " + response.status);
-        }
-    } catch (error) {
-        return { success: false, content: error.message };
-    }
+async function call(path) {
+  const res = await fetch(API + path);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
 }
 
-async function upVote(id) {
-    let getVote = await get(COUNTERAPIBASE + "hit/" + id);
-    return getVote.status;
+const key = id => encodeURIComponent(id);
+
+export const hit = id => call(`hit/${key(id)}`);
+
+export async function get(id) {
+  const data = await call(`get/${key(id)}`);
+  return Number(data?.value) || 0;
 }
 
-async function downVote(id) {
-    let getVote = await get(COUNTERAPIBASE + "get/" + id);
-    if (getVote.success) {
-        let currentValue = parseInt(getVote.content.value) - 1;
-        if (currentValue < 0) {
-            currentValue = 0;
-        }
-        let updateVote = await get(COUNTERAPIBASE + "set/" + id + "?value=" + currentValue);
-        return updateVote.success;
-    }
+export const set = (id, value) => call(`set/${key(id)}?value=${Number(value) || 0}`);
+
+// Une vue pour la page, une vue pour le total. Les erreurs réseau sont ignorées.
+export function addView(page) {
+  if (page) hit(VIEWS + page).catch(() => {});
+  hit(VIEWS).catch(() => {});
 }
 
-async function setValue(id, value) {
-    let setVote = await get(COUNTERAPIBASE + "set/" + id + "?value=" + value);
-    return setVote.status;
-}
-
-async function addView(id) {
-	if(!(id === null || id === undefined))
-		await upVote(COUNTERVIEWS + id);
-	await upVote(COUNTERVIEWS);
-}
-
-async function getCounter(id) {
-	let getVote = await get(COUNTERAPIBASE + "get/" + id);
-	if (getVote.success) {
-		return getVote.content.value;
-	}
-	return "Something went wrong getting value";
-}
-
-async function getViews(id) {
-	console.log(COUNTERVIEWS + (id || ""));
-	let getView = await getCounter(COUNTERVIEWS + (id || ""));
-
-	return getView;
-}
-
-
-let loc = window.location.href.split("/");
-loc = loc[loc.length - 1].replace(".html", "").toLowerCase();
-
-addView(loc);
+export const getViews = page => get(VIEWS + (page || ""));

@@ -1,29 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="pageNotFound"></title>
-  <link rel="stylesheet" href="./404/css/style.css"/>
-  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baby Roulette</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #F5F3FF; color: #2B2257; font: 600 1rem system-ui, sans-serif; }
+    @media (prefers-color-scheme: dark) { body { background: #18142F; color: #F2EFFF; } }
+    a { color: inherit; }
+  </style>
+  <script>
+    /* GitHub Pages sert cette page pour toute adresse inconnue.
+       Les adresses de la première version (genderReveal.html?q=…, wordle.html?q=…,
+       nameTournament.html?q=…&result=true, about.html) sont renvoyées vers la nouvelle appli,
+       avec leurs données intactes. Le reste mène à la page « introuvable ». */
+    (function () {
+      var LEGACY = {
+        "genderreveal.html": "gender-reveal",
+        "wordle.html": "name-reveal",
+        "nametournament.html": "name-tournament",
+        "about.html": "about",
+        "index.html": ""
+      };
+      var path = location.pathname;
+      var file = path.split("/").pop();
+      var route = LEGACY[file.toLowerCase()];
+      var base;
+
+      if (route !== undefined) {
+        base = path.slice(0, path.length - file.length);
+      } else {
+        route = "404";
+        // Site de projet (utilisateur.github.io/BabyRoulette/) ou domaine personnalisé
+        var first = path.split("/")[1];
+        base = /\.github\.io$/.test(location.hostname) && first ? "/" + first + "/" : "/";
+      }
+
+      var query = [];
+      var q = location.search.match(/[?&]q=([^&]*)/);
+      if (q) query.push("q=" + q[1]);
+      if (/[?&]result=/.test(location.search)) query.push("result=1");
+
+      location.replace(base + "#/" + route + (query.length ? "?" + query.join("&") : ""));
+    })();
+  </script>
 </head>
 <body>
-  <div class="error-code">
-    4👶🏼4
-  </div>
-  <div class="message" data-i18n="notFound"></div>
-  <a href="index.html" data-i18n="backHome"></a>
-
-  <script src="./js/commonScript.js"></script>
-  <script src="./404/js/langs.js"></script>
-  <script>
-    const babies = ['👶🏻','👶🏼','👶🏽','👶🏾'];
-    const index = Math.floor(Math.random() * babies.length);
-
-    document.getElementsByClassName("error-code")[0].innerText = "4" + babies[index] + "4";
-
-    initTranslation([translations]);
-    translate();
-  </script>
+  <p><a href="/">Baby Roulette</a></p>
 </body>
 </html>

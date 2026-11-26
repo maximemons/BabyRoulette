@@ -2,48 +2,64 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>Accueil - Mes Applications</title>
-  <link rel="stylesheet" href="./css/commonStyle.css"/>
-  <link rel="stylesheet" href="./css/style.css"/>
-  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F5F3FF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#18142F" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Baby Roulette : des petits jeux à partager pour révéler le sexe ou le prénom de bébé à ses proches.">
+  <title>Baby Roulette</title>
+
+  <meta property="og:title" content="Baby Roulette">
+  <meta property="og:description" content="Une surprise t’attend : joue pour la découvrir.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Baby Roulette">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <header>
-    <h1 data-i18n="title"></h1>
-    <div class="counterapi"   readOnly="true" startNumber="42000" key="homapage"  ></div>
+  <header class="topbar">
+    <a id="btn-back" class="icon-btn hidden" href="#/" aria-label="Retour">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <a class="brand" href="#/" aria-label="Baby Roulette">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="8" y="34" width="22" height="22" rx="5" fill="var(--blue)"/>
+        <rect x="34" y="34" width="22" height="22" rx="5" fill="var(--pink)"/>
+        <rect x="21" y="9" width="22" height="22" rx="5" fill="var(--butter)" transform="rotate(-8 32 20)"/>
+      </svg>
+      <span class="brand-name">Baby Roulette</span>
+    </a>
+    <label class="lang">
+      <span class="sr-only" id="lang-label">Langue</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+      <select id="lang-select" aria-labelledby="lang-label"></select>
+    </label>
   </header>
 
-  <main>
-    <div id="app-list">
-    </div>
-  </main>
+  <main id="view" class="view" tabindex="-1"></main>
 
-  <div id="langSwitcher">
-    <button id="toggleLangBtn"><span></span>▼</button>
-    <ul id="langList">
-    </ul>
-  </div>
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Maxime Mons. <span data-i18n="rights"></span></p>
+    <nav class="footer-links">
+      <a href="https://github.com/maximemons/BabyRoulette" target="_blank" rel="noopener" data-i18n="github"></a>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=MBLHARVDYVX2S" target="_blank" rel="noopener" data-i18n="paypal"></a>
+      <a href="#/about" data-i18n="about"></a>
+    </nav>
+  </footer>
 
-  <footer></footer>
+  <div id="sheet-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
 
-  <script src="./js/commonScript.js"></script>
-  <script src="./js/commonLangs.js"></script>
-  <script src="./js/langs.js"></script>
-  <script src="./js/script.js"></script>
-  <script src="./js/counter.js"></script>
-
-  <script type="text/javascript">
-    initTranslation([translationsCommon, translations]);
-
-    initLangSwitch();
-
-    cards.forEach(card => {
-      generateCard(card);
-    });
-
-    translate();
-  </script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
